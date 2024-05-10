@@ -53,9 +53,9 @@ def scrape_page(i):
     # write data to json file
 
     data = list(zip(all_title, all_content))
-    with open(f'data alodokter/page{i}.json', 'w') as f:
+    with open(f'Data Scraping Alodokter/data alodokter/page{i}.json', 'w') as f:
         json.dump(data, f, indent=4)
     print("Page {} done".format(i))
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
-    executor.map(scrape_page, range(10000, 10001))
+    executor.map(scrape_page, range(10001, 15001))
