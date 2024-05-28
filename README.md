@@ -1,5 +1,5 @@
 
-[Medi Chan](https://github.com/azzamfauqi123/Data/blob/main/Medi%20Chan.png)
+![Medi Chan](https://github.com/azzamfauqi123/Data/blob/main/Medi%20Chan.png)
 
 # Bangkit 2024 Capstone Project Team: Medichat
 Hello health people! here is our repository  for Bangkit 2021 Capstone Project. we are making a medical chatbot (Medichat) at this capstone. Medichat is data-based health chatbot model from the alodokter platform
