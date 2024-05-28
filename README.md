@@ -10,9 +10,9 @@ Hello health people! here is our repository  for Bangkit 2021 Capstone Project. 
 |  Ibrahim  |  M111D4KY3323  | Machine Learning |
 |  Ryo Richie  |  M013D4KY2024  | Machine Learning |
 |   Muhamad Fauqi Al Azzami    |  M299D4KY3008   |  Machine Learning |
-|  Syahrizal Raksa Negar |  C393D4KY0794   |  Cloud Computing |
+|  Syahrizal Raksa Negara |  C393D4KY0794   |  Cloud Computing |
 |    Aditya Suryandaru   |  C200D4KY0358   |      Cloud Computing     |
-|    Muhamad Hasbi As'sidiq      |  A393D4KY37   |      Mobile Development     |
+|    Muhamad Hasbi As'ssidiq      |  A393D4KY3766   |      Mobile Development     |
 |    Muhammad Fiqri Febriansyah     |  A393D4KY3761    |      Mobile Development |
 
 ## Introduction
