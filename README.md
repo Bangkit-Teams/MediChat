@@ -1,7 +1,22 @@
-# Chatbot-Kesehatan
-model chatbot kesehatan berbasis data dari platform alodokter
-# Introduction
-Di era digital yang dipenuhi dengan informasi medis yang berlimpah, seringkali kita merasa bingung oleh jargon teknis, nasihat yang bertentangan, dan bahkan informasi yang ketinggalan zaman di internet. Hal ini membuat banyak orang merasa frustasi dan akhirnya melakukan diagnosis mandiri yang tidak akurat, yang dapat berujung pada penundaan pengobatan yang diperlukan atau intervensi yang sebenarnya tidak diperlukan. Namun, ada harapan di cakrawala digital ini. Sebuah solusi yang inovatif telah muncul: chatbot kesehatan. Dengan antarmuka yang mudah digunakan, chatbot ini dapat membantu mengatasi masalah kompleks ini. Bayangkan percakapan yang sederhana: Anda menjelaskan gejala Anda dalam bahasa yang mudah dimengerti, dan chatbot merespons dengan penjelasan, diagnosis potensial berdasarkan pengetahuan medis yang luas, dan rekomendasi untuk langkah selanjutnya. Meskipun chatbot kesehatan tidak dimaksudkan untuk menggantikan dokter, ia dapat menjadi asisten virtual yang berharga. Bagi para profesional medis, chatbot ini dapat membantu menangani pertanyaan dasar dan menawarkan triase awal, sehingga mereka dapat fokus pada kasus yang lebih kompleks. Di sisi lain, bagi pengguna, chatbot ini menjadi akses 24/7 ke asisten layanan kesehatan, memberikan panduan awal dan mengurangi kecemasan saat menunggu janji dengan dokter.Dengan menggabungkan keahlian dokter dengan teknologi canggih, chatbot kesehatan dapat memberikan pengalaman yang menyenangkan dan dapat dipercaya bagi semua orang yang membutuhkannya. Dengan aksesibilitas dan kemudahan penggunaan yang dimilikinya, chatbot ini menjadi titik kontak pertama yang berharga bagi mereka yang memerlukan bantuan dalam masalah kesehatan mereka.
-# Fitur Utama
-- Tanya jawab terkait kesehatan via chat
-- Riwayat pertanyaan
+
+![uhuy](https://github.com/azzamfauqi123/Data/blob/main/lorem-ipsum-1698251130407-2x.jpg)
+
+# Bangkit 2024 Capstone Project Team: Medichat
+Hello health people! here is our repository  for Bangkit 2021 Capstone Project. we are making a medical chatbot (Medichat) at this capstone. Medichat is data-based health chatbot model from the alodokter platform
+## Initiator
+
+|          Nama         | Bangkit-ID |       Path       |
+|:---------------------:|:----------:|:----------------:|
+|  Ibrahim  |  M111D4KY3323  | Machine Learning |
+|  Ryo Richie  |  M013D4KY2024  | Machine Learning |
+|   Muhamad Fauqi Al Azzami    |  M299D4KY3008   |  Machine Learning |
+|  Syahrizal Raksa Negar |  C393D4KY0794   |  Cloud Computing |
+|    Aditya Suryandaru   |  C200D4KY0358   |      Cloud Computing     |
+|    Muhamad Hasbi As'sidiq      |  A393D4KY37   |      Mobile Development     |
+|    Muhammad Fiqri Febriansyah     |  A393D4KY3761    |      Mobile Development |
+
+## Introduction
+In today's digitally saturated era, abundant medical information often leaves people perplexed with technical jargon, conflicting advice, and even outdated information on the internet. This frustration often leads many individuals to resort to inaccurate self-diagnoses, potentially resulting in delayed necessary treatments or unnecessary interventions. However, there is hope on the digital horizon. An innovative solution has emerged: health chatbots. With user-friendly interfaces, these chatbots can help tackle these complex issues. Imagine a simple conversation: you describe your symptoms in easy-to-understand language, and the chatbot responds with explanations, potential diagnoses based on extensive medical knowledge, and recommendations for next steps. While health chatbots are not meant to replace doctors, they can serve as valuable virtual assistants. For medical professionals, these chatbots can assist in handling basic inquiries and offer initial triage, allowing them to focus on more complex cases. On the other hand, for users, these chatbots provide 24/7 access to healthcare assistance, offering initial guidance and reducing anxiety while waiting for appointments with doctors. By combining medical expertise with advanced technology, health chatbots can provide an enjoyable and trustworthy experience for anyone in need. With their accessibility and ease of use, these chatbots become valuable first points of contact for those requiring assistance with their health issues. This is our capstone project.
+# Main Feature
+- Questions and answers related to health via chat
+- Question History
