@@ -44,4 +44,8 @@
     <string name="Guide">Ayo segera isi dan mulailah berbagi cerita dengan yang lain</string>
     <string name="don_t_have_account">Don\'t have an account yet?<font color="#C58BF2"> Register</font></string>
     <string name="have_account">Already have an account?<font color="#C58BF2"> Log in</font></string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_riwayat">Riwayat</string>
+    <string name="title_setting">Setting</string>
 </resources>

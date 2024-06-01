@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_riwayat"
         android:name="com.capstone.medichat.ui.main.bottomnav.riwayat.RiwayatFragment"
-        android:label="@string/title_Riwayat"
+        android:label="@string/title_riwayat"
         tools:layout="@layout/fragment_riwayat" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.capstone.medichat.ui.main.bottomnav.notifications.NotificationsFragment"
-        android:label="@string/title_Setting"
+        android:id="@+id/navigation_setting"
+        android:name="com.capstone.medichat.ui.main.bottomnav.setting.SettingFragment"
+        android:label="@string/title_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>

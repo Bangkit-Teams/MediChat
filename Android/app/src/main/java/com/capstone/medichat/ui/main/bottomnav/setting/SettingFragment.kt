@@ -1,4 +1,4 @@
-package com.capstone.medichat.ui.main.bottomnav.notifications
+package com.capstone.medichat.ui.main.bottomnav.setting
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.medichat.databinding.FragmentSettingBinding
 
-class NotificationsFragment : Fragment() {
+class SettingFragment : Fragment() {
 
     private var _binding: FragmentSettingBinding? = null
 
@@ -23,7 +23,7 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+            ViewModelProvider(this).get(SettingViewModel::class.java)
 
         _binding = FragmentSettingBinding.inflate(inflater, container, false)
         val root: View = binding.root
