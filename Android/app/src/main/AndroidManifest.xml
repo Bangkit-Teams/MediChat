@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MediChat"
         tools:targetApi="31">
         <activity
-            android:name=".ui.SplashScreenActivity"
+            android:name=".ui.welcome.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false">
         </activity>
     </application>

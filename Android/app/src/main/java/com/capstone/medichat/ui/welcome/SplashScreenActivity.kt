@@ -1,13 +1,10 @@
-package com.capstone.medichat.ui
+package com.capstone.medichat.ui.welcome
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.capstone.medichat.MainActivity
+import com.capstone.medichat.ui.main.MainActivity
 import com.capstone.medichat.R
 
 class SplashScreenActivity : AppCompatActivity() {
