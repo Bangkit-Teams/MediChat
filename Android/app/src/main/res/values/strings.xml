@@ -1,5 +1,47 @@
 <resources>
     <string name="app_name">MediChat</string>
+    <string name="title_splash_screen">Welcome to MediChat</string>
 
-
+    <string name="signup">Sign up</string>
+    <string name="login">Log in</string>
+    <string name="logout">Log out</string>
+    <string name="Welcome">Hi, Selamat Datang</string>
+    <string name="greeting">Hello %1$s,</string>
+    <string name="title_detail">Detail</string>
+    <string name="title_upload">Upload</string>
+    <string name="story_title">Story title</string>
+    <string name="story_description">Story description</string>
+    <string name="upload">Upload</string>
+    <string name="upload_desc">Upload new story</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="message_login_page">Please fill in your identity first</string>
+    <string name="inputYourNewName">What\'s your name?</string>
+    <string name="inputYourNewEmail">What\'s your email?</string>
+    <string name="inputYourEmail">Input your email</string>
+    <string name="inputYourNewPass">Create your new password</string>
+    <string name="inputYourPass">Input your password</string>
+    <string name="inputDescription">Give some descriptions</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="empty_image_warning">Please insert an image first</string>
+    <string name="empty_description_warning">Description should\'nt be empty</string>
+    <string name="email_error">Must be in a valid email format</string>
+    <string name="password_error">Must not be less than 8 characters</string>
+    <string name="success_create_acc">Account created successfully</string>
+    <string name="success">Success</string>
+    <string name="continue_login">Continue log in</string>
+    <string name="item_banner_thumbnail">Story banner</string>
+    <string name="item_banner_detail">Story banner detail</string>
+    <string name="verification_code">Verification code</string>
+    <string name="welcome_page_message">Asisten Kesehatan Anda</string>
+    <string name="welcome_page_guide">Using this software,you can ask you questions, solve medical problems, and receive medical information using artificial intelligence assistant</string>
+    <string name="continue_button">Continue</string>
+    <string name="Welcome_Massage">Please insert your email and password</string>
+    <string name="register_title">REGISTER FORM</string>
+    <string name="register_guide">Enter your email, phone, or username and we\'ll send you verification code</string>
+    <string name="Guide">Ayo segera isi dan mulailah berbagi cerita dengan yang lain</string>
+    <string name="don_t_have_account">Don\'t have an account yet?<font color="#C58BF2"> Register</font></string>
+    <string name="have_account">Already have an account?<font color="#C58BF2"> Log in</font></string>
 </resources>
