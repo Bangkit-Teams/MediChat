@@ -1,16 +1,17 @@
-package com.capstone.medichat.ui.main.bottomnav.riwayat
+package com.capstone.medichat.ui.main.bottomnav.rekomendasi
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import com.capstone.medichat.databinding.FragmentRiwayatBinding
+import com.capstone.medichat.databinding.FragmentRecomendasiBinding
 
-class RiwayatFragment : Fragment() {
 
-    private var _binding: FragmentRiwayatBinding? = null
+class RecomendasiFragment : Fragment() {
+
+    private var _binding: FragmentRecomendasiBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -21,11 +22,12 @@ class RiwayatFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRiwayatBinding.inflate(inflater, container, false)
+
+        _binding = FragmentRecomendasiBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-            textView.text = "This is Riwayat Fragment"
+        val textView: TextView = binding.textRekomendasi
+            textView.text = "This is Rekomedasi Fragment"
 
         return root
     }
@@ -35,3 +37,6 @@ class RiwayatFragment : Fragment() {
         _binding = null
     }
 }
+
+
+

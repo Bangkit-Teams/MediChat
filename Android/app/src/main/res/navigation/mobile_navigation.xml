@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.capstone.medichat.ui.main.bottomnav.home.HomeFragment"
+        android:name="com.capstone.medichat.ui.main.bottomnav.home.ChatbotFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_chatbot" />
 
     <fragment
         android:id="@+id/navigation_riwayat"
@@ -22,4 +22,10 @@
         android:name="com.capstone.medichat.ui.main.bottomnav.setting.SettingFragment"
         android:label="@string/title_setting"
         tools:layout="@layout/fragment_setting" />
+
+    <fragment
+        android:id="@+id/navigation_recomdasi"
+        android:name="com.capstone.medichat.ui.main.bottomnav.rekomendasi.RecomendasiFragment"
+        android:label="@string/title_recomend"
+        tools:layout="@layout/fragment_recomendasi" />
 </navigation>
