@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/icon_item_bot"
         android:title="@string/app_name"
+        app:titleTextColor="@color/blue"
         />
 
     <item
         android:id="@+id/navigation_recomdasi"
         android:icon="@drawable/ic_rec"
-        android:title="@string/title_recomend" />
+        android:title="@string/title_recomend"
+        app:titleTextColor="@color/blue"/>
 
     <item
         android:id="@+id/navigation_riwayat"
         android:icon="@drawable/ic_riwayat"
-        android:title="@string/title_riwayat" />
+        android:title="@string/title_riwayat"
+        app:titleTextColor="@color/blue"/>
 
     <item
         android:id="@+id/navigation_setting"
         android:icon="@drawable/ic_settings_24"
-        android:title="@string/title_setting" />
+        android:title="@string/title_setting"
+        app:titleTextColor="@color/blue"/>
 
 
 

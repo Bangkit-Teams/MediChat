@@ -1,17 +1,17 @@
-package com.capstone.medichat.ui.main.bottomnav.setting
+package com.capstone.medichat.ui.main.content.rekomendasi
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.capstone.medichat.databinding.FragmentSettingBinding
+import com.capstone.medichat.databinding.FragmentRecomendasiBinding
 
-class SettingFragment : Fragment() {
 
-    private var _binding: FragmentSettingBinding? = null
+class RecomendasiFragment : Fragment() {
+
+    private var _binding: FragmentRecomendasiBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,11 +23,11 @@ class SettingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentSettingBinding.inflate(inflater, container, false)
+        _binding = FragmentRecomendasiBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-            textView.text = "this is Setting Fragment"
+        val textView: TextView = binding.textRekomendasi
+            textView.text = "This is Rekomedasi Fragment"
 
         return root
     }
@@ -37,3 +37,6 @@ class SettingFragment : Fragment() {
         _binding = null
     }
 }
+
+
+

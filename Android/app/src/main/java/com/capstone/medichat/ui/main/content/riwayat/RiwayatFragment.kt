@@ -1,16 +1,16 @@
-package com.capstone.medichat.ui.main.bottomnav.home
+package com.capstone.medichat.ui.main.content.riwayat
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.capstone.medichat.databinding.FragmentChatbotBinding
+import com.capstone.medichat.databinding.FragmentRiwayatBinding
 
+class RiwayatFragment : Fragment() {
 
-class ChatbotFragment : Fragment() {
-
-    private var _binding: FragmentChatbotBinding? = null
+    private var _binding: FragmentRiwayatBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -21,11 +21,13 @@ class ChatbotFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        _binding = FragmentRiwayatBinding.inflate(inflater, container, false)
+        val root: View = binding.root
 
-        _binding = FragmentChatbotBinding.inflate(inflater, container, false)
+        val textView: TextView = binding.textDashboard
+            textView.text = "This is Riwayat Fragment"
 
-        return binding.root
-
+        return root
     }
 
     override fun onDestroyView() {
