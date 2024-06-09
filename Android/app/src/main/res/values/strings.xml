@@ -49,4 +49,6 @@
     <string name="title_riwayat">Riwayat</string>
     <string name="title_setting">Setting</string>
     <string name="title_recomend">Rekomendasi</string>
+    <string name="write_here">Tulis Disini</string>
+    <string name="Send">Kirim</string>
 </resources>

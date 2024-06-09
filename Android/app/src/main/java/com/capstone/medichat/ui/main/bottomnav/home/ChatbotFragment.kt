@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.capstone.medichat.databinding.FragmentChatbotBinding
 
@@ -24,13 +23,9 @@ class ChatbotFragment : Fragment() {
     ): View {
 
         _binding = FragmentChatbotBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+        return binding.root
 
-            textView.text = "this is Chatbot Fragment"
-
-        return root
     }
 
     override fun onDestroyView() {
