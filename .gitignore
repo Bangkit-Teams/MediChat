@@ -1,3 +1,4 @@
 **/combined.csv
 Docker ML/llama-cpu-server.tar
 Data Scraping Alodokter/data alodokter/word_counts.csv
+Docker ML/MediChat_medium_quant-unsloth.Q4_K_M.gguf
