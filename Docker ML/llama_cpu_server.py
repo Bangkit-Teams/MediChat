@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from llama_cpp import Llama
+import os
 
 # Create a Flask object
 app = Flask("Llama server")
@@ -18,7 +19,7 @@ def generate_response(max_tokens=None):
             user_message = data['user_message']
 
             # Prompt creation
-            prompt = f"""<s>[INST] <<SYS>>
+            prompt = f"""[INST] <<SYS>>
             {system_message}
             <</SYS>>
             \n\n### Instruction: \n{user_message}\n\n### Input:\n\n\n### Response:\n [/INST]"""
@@ -43,4 +44,5 @@ def generate_response(max_tokens=None):
         return jsonify({"Error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080), debug=True))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080), debug=True))
