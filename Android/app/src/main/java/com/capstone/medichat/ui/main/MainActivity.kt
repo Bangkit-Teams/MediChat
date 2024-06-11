@@ -3,6 +3,7 @@ package com.capstone.medichat.ui.main
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_riwayat, R.id.navigation_setting, R.id.navigation_recomdasi
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

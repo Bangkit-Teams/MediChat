@@ -1,4 +1,4 @@
-package com.capstone.medichat.ui.main.bottomnav.setting
+package com.capstone.medichat.ui.main.content.riwayat
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.capstone.medichat.databinding.FragmentSettingBinding
+import com.capstone.medichat.databinding.FragmentRiwayatBinding
 
-class SettingFragment : Fragment() {
+class RiwayatFragment : Fragment() {
 
-    private var _binding: FragmentSettingBinding? = null
+    private var _binding: FragmentRiwayatBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,12 +21,11 @@ class SettingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        _binding = FragmentSettingBinding.inflate(inflater, container, false)
+        _binding = FragmentRiwayatBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-            textView.text = "this is Setting Fragment"
+        val textView: TextView = binding.textDashboard
+            textView.text = "This is Riwayat Fragment"
 
         return root
     }

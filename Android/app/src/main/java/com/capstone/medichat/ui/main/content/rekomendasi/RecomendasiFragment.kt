@@ -1,4 +1,4 @@
-package com.capstone.medichat.ui.main.bottomnav.rekomendasi
+package com.capstone.medichat.ui.main.content.rekomendasi
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
