@@ -17,6 +17,9 @@ Hello health people! here is our repository  for Bangkit 2021 Capstone Project. 
 
 ## Introduction
 In today's digitally saturated era, abundant medical information often leaves people perplexed with technical jargon, conflicting advice, and even outdated information on the internet. This frustration often leads many individuals to resort to inaccurate self-diagnoses, potentially resulting in delayed necessary treatments or unnecessary interventions. However, there is hope on the digital horizon. An innovative solution has emerged: health chatbots. With user-friendly interfaces, these chatbots can help tackle these complex issues. Imagine a simple conversation: you describe your symptoms in easy-to-understand language, and the chatbot responds with explanations, potential diagnoses based on extensive medical knowledge, and recommendations for next steps. While health chatbots are not meant to replace doctors, they can serve as valuable virtual assistants. For medical professionals, these chatbots can assist in handling basic inquiries and offer initial triage, allowing them to focus on more complex cases. On the other hand, for users, these chatbots provide 24/7 access to healthcare assistance, offering initial guidance and reducing anxiety while waiting for appointments with doctors. By combining medical expertise with advanced technology, health chatbots can provide an enjoyable and trustworthy experience for anyone in need. With their accessibility and ease of use, these chatbots become valuable first points of contact for those requiring assistance with their health issues. This is our capstone project.
-# Main Feature
+## Main Feature
 - Questions and answers related to health via chat
 - Question History
+- Spesialist Recommendation
+## Our Tech Stacks
+![tech](https://github.com/azzamfauqi123/Data/blob/2293bc5a89b2691da235d7c61b1fa24af67da387/Untitled%20design.png)

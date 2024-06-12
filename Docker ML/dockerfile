@@ -1,6 +1,5 @@
 # Use python as base image
 FROM python
-
 # Set the working directory in the container
 WORKDIR /app
 
@@ -11,9 +10,7 @@ COPY ./MediChat_medium_quant-unsloth.Q4_K_M.gguf /app/MediChat_medium_quant-unsl
 # Install the needed packages
 RUN pip install llama-cpp-python
 RUN pip install Flask
-
-# Expose port 5000 outside of the container
-EXPOSE 5000
+RUN pip install gunicorn
 
 # Run llama_cpu_server.py when the container launches
-CMD ["python", "llama_cpu_server.py"]
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 1 --timeout 0 llama_cpu_server:app
