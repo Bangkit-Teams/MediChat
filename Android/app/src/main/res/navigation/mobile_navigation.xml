@@ -23,6 +23,7 @@
         android:label="@string/title_setting"
         tools:layout="@layout/fragment_setting" />
 
+
     <fragment
         android:id="@+id/navigation_recomdasi"
         android:name="com.capstone.medichat.ui.main.content.rekomendasi.RecomendasiFragment"

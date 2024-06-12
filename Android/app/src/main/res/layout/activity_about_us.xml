@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".ui.main.content.setting.AboutUsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="318dp"
+                android:layout_height="209dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/icon_medichat" />
+
+            <TextView
+                android:id="@+id/mediChatTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MediChat"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:layout_below="@id/logo"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="8dp"/>
+
+            <TextView
+                android:id="@+id/capstoneProject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capstone Project"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/mediChatTitle"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="4dp"/>
+
+            <TextView
+                android:id="@+id/teamMembers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C241-PS397 Team"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/capstoneProject"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="4dp"/>
+
+            <!-- Member Names and Universities -->
+            <GridLayout
+                android:id="@+id/daftarmember"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/teamMembers"
+                android:layout_marginTop="8dp"
+                android:columnCount="2"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <!-- Anggota 1 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aditya Suryandaru"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:gravity="end"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Diponegoro"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="start"/>
+
+                <!-- Anggota 2 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Syahrizal Raksa Negara"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Serang Raya"
+                    android:layout_marginTop="4dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="start"/>
+
+                <!-- Anggota 3 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ryo Richie"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Terbuka"
+                    android:layout_marginTop="4dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="start"/>
+
+                <!-- Anggota 4 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muhamad Fauqi Al Azzami"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Institut Teknologi Adhi Tama Surabaya"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="start"/>
+
+                <!-- Anggota 5 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ibrahim"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Pendidikan Indonesia"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="start"/>
+
+                <!-- Anggota 6 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muhammad Fiqri Febriansyah"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Serang Raya"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="start"/>
+
+                <!-- Anggota 7 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muhamad Hasbi As'siddiq"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp"
+                    android:gravity="end"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Serang Raya"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="start"/>
+
+            </GridLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
