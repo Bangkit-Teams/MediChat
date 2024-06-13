@@ -10,11 +10,16 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.capstone.medichat.data.preference.UserModel
+import com.capstone.medichat.data.preference.UserPreference
+import com.capstone.medichat.data.preference.dataStore
 import com.capstone.medichat.databinding.ActivityLoginBinding
 import com.capstone.medichat.ui.ViewModelFactory
 import com.capstone.medichat.ui.main.MainActivity
 import com.capstone.medichat.data.repo.Result
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -29,8 +34,27 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupView()
-        setupAction()
+        lifecycleScope.launch {
+            if (isUserLoggedIn()) {
+                navigateToMain()
+            } else {
+                setupView()
+                setupAction()
+            }
+        }
+    }
+
+    private suspend fun isUserLoggedIn(): Boolean {
+        val userPreference = UserPreference.getInstance(dataStore)
+        val session = userPreference.getSession().first()
+        return session.isLogin
+    }
+
+    private fun navigateToMain() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
     }
 
     private fun setupView() {
@@ -70,18 +94,15 @@ class LoginActivity : AppCompatActivity() {
                                     password = password,
                                     isLogin = true
                                 )
-                                viewModel.saveSession(userModel)
-                                ViewModelFactory.clearInstance()
+                                lifecycleScope.launch {
+                                    saveUserSession(userModel)
+                                }
 
                                 AlertDialog.Builder(this).apply {
                                     setTitle("Success!")
                                     setMessage("Login success")
                                     setPositiveButton("Next") { _, _ ->
-                                        val intent = Intent(context, MainActivity::class.java)
-                                        intent.flags =
-                                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                                        startActivity(intent)
-                                        finish()
+                                        navigateToMain()
                                     }
                                     create()
                                     show()
@@ -99,6 +120,11 @@ class LoginActivity : AppCompatActivity() {
                 showToast("Email and Password cannot be empty")
             }
         }
+    }
+
+    private suspend fun saveUserSession(userModel: UserModel) {
+        val userPreference = UserPreference.getInstance(dataStore)
+        userPreference.saveSession(userModel)
     }
 
     private fun showLoading(isLoading: Boolean) {
