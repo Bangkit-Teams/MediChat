@@ -9,4 +9,8 @@
 
     <style name="Theme.MediChat" parent="Base.Theme.MediChat" />
 
+    <style name="BotIcon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="srcCompat">@drawable/icon_medichat</item>
+    </style>
+
 </resources>

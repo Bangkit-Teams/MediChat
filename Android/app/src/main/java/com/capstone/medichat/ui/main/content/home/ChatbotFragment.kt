@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.medichat.R
@@ -16,7 +17,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
 class ChatbotFragment : Fragment() {
 
     private lateinit var messageEditText: EditText
@@ -24,6 +24,8 @@ class ChatbotFragment : Fragment() {
     private lateinit var chatRecyclerView: RecyclerView
 
     private lateinit var chatAdapter: ChatAdapter
+    private val chatViewModel: ChatViewModel by activityViewModels()
+
     private lateinit var generativeModel: GenerativeModel
 
     override fun onCreateView(
@@ -42,6 +44,14 @@ class ChatbotFragment : Fragment() {
         chatRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         chatRecyclerView.adapter = chatAdapter
 
+        // Observe messages in the ViewModel
+        chatViewModel.messages.observe(viewLifecycleOwner) { messages ->
+            chatAdapter.messages.clear()
+            chatAdapter.messages.addAll(messages)
+            chatAdapter.notifyDataSetChanged()
+            chatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
+        }
+
         // Initialize the generative model (Replace API key with your actual key)
         generativeModel = GenerativeModel(
             modelName = "gemini-pro",
@@ -57,22 +67,32 @@ class ChatbotFragment : Fragment() {
         sendButton.setOnClickListener {
             val prompt = messageEditText.text.toString()
 
-            // Call AI and update adapter with new data
-            CoroutineScope(Dispatchers.IO).launch {
-                val response = generativeModel.generateContent(prompt)
-                withContext(Dispatchers.Main) {
-                    val newMessage = ChatMessage(prompt, true) // User message
-                    chatAdapter.addMessage(newMessage)
+            if (prompt.isNotBlank()) {
+                // Add user message immediately
+                val userMessage = ChatMessage(prompt, isUserMessage = true)
+                chatViewModel.addMessage(userMessage)
 
-                    val generatedResponse = ChatMessage(response.text, false) // AI response
-                    chatAdapter.addMessage(generatedResponse)
+                // Clear input field
+                messageEditText.text.clear()
 
-                    messageEditText.text.clear() // Optionally clear the input field
+                // Call AI and update ViewModel with new data
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val response = generativeModel.generateContent(prompt)
+                        withContext(Dispatchers.Main) {
+                            // Add AI response message
+                            val aiMessage = ChatMessage(response.text, isUserMessage = false)
+                            chatViewModel.addMessage(aiMessage)
+                        }
+                    } catch (e: Exception) {
+                        withContext(Dispatchers.Main) {
+                            // Handle error, show an error message
+                            val errorMessage = ChatMessage("Failed to get response from AI.", isUserMessage = false)
+                            chatViewModel.addMessage(errorMessage)
+                        }
+                    }
                 }
             }
         }
     }
 }
-
-// Data class for chat messages
-data class ChatMessage(val message: String?, val isUserMessage: Boolean)
