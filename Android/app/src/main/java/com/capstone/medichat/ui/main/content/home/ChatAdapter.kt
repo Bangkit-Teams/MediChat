@@ -10,7 +10,7 @@ import com.capstone.medichat.R
 class ChatAdapter(private val messages: MutableList<ChatMessage> = mutableListOf()) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    // View types constants
+    // View types co nstants
     companion object {
         const val VIEW_TYPE_USER = 1
         const val VIEW_TYPE_AI = 2
