@@ -4,8 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="8dp"
     android:layout_height="match_parent"
     tools:context=".ui.main.content.setting.SettingFragment">
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/user_info_container"
@@ -103,13 +106,14 @@
     <!-- Dark Mode Container -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dark_mode_container"
-        android:layout_width="407dp"
-        android:layout_height="70dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_container"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_container">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp">
 
         <TextView
             android:id="@+id/dark_mode_text"
@@ -126,8 +130,8 @@
 
         <Switch
             android:id="@+id/dark_mode_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="47dp"
+            android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="18dp"
             android:minWidth="48dp"
@@ -188,8 +192,8 @@
 
         <ImageView
             android:id="@+id/about_us_arrow"
-            android:layout_width="29dp"
-            android:layout_height="29dp"
+            android:layout_width="32dp"
+            android:layout_height="31dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="4dp"
