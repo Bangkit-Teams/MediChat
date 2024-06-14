@@ -10,6 +10,6 @@ COPY . .
 
 ENV PORT=3000
 
-ENV MODEL_URL=
+ENV MODEL_URL=https://storage.googleapis.com/rekomendasi-bucket/model.json
 
 CMD [ "npm", "start" ]
