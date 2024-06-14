@@ -75,20 +75,24 @@ class ChatbotFragment : Fragment() {
                 // Clear input field
                 messageEditText.text.clear()
 
+                // Show "Typing..." message
+                val typingMessage = ChatMessage("Typing...", isUserMessage = false)
+                val typingMessagePosition = chatViewModel.addMessage(typingMessage)
+
                 // Call AI and update ViewModel with new data
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
                         val response = generativeModel.generateContent(prompt)
                         withContext(Dispatchers.Main) {
-                            // Add AI response message
-                            val aiMessage = ChatMessage(response.text, isUserMessage = false)
-                            chatViewModel.addMessage(aiMessage)
+                            // Ensure response.text is not null; use ?: to provide a default value if it is
+                            val aiResponseText = response.text ?: "No response from AI."
+                            // Update "Typing..." message with AI response
+                            chatViewModel.updateMessage(typingMessagePosition, aiResponseText)
                         }
                     } catch (e: Exception) {
                         withContext(Dispatchers.Main) {
                             // Handle error, show an error message
-                            val errorMessage = ChatMessage("Failed to get response from AI.", isUserMessage = false)
-                            chatViewModel.addMessage(errorMessage)
+                            chatViewModel.updateMessage(typingMessagePosition, "Failed to get response from AI.")
                         }
                     }
                 }

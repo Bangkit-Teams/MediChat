@@ -13,7 +13,6 @@ class ChatAdapter(val messages: MutableList<ChatMessage> = mutableListOf()) :
     companion object {
         const val VIEW_TYPE_USER = 1
         const val VIEW_TYPE_AI = 2
-
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -40,12 +39,6 @@ class ChatAdapter(val messages: MutableList<ChatMessage> = mutableListOf()) :
     }
 
     override fun getItemCount(): Int = messages.size
-
-    // Method to add new messages
-    fun addMessage(message: ChatMessage) {
-        messages.add(message)
-        notifyItemInserted(messages.size - 1)
-    }
 
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val rightChatTextView: TextView = itemView.findViewById(R.id.right_chat_text_view)
