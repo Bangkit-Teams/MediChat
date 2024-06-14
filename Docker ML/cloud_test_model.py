@@ -1,7 +1,7 @@
 import requests
 
 # URL of the deployed service on GCP
-url = "https://generate-response-t7yc42rinq-uc.a.run.app/llama"
+url = "https://generate-response1-t7yc42rinq-uc.a.run.app/llama"
 
 # Headers
 headers = {
