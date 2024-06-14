@@ -126,6 +126,7 @@ class ChatbotFragment : Fragment() {
         var cleanedResponse = responseText
 
         // Remove unnecessary characters or strings from response
+        cleanedResponse = "Hi, saya akan membantu anda terkait hal tersebut.\n"+cleanedResponse
         cleanedResponse = cleanedResponse.replace("response\":", "")
         cleanedResponse = cleanedResponse.replace("{", "")
         cleanedResponse = cleanedResponse.replace("}", "")
