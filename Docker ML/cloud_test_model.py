@@ -10,7 +10,7 @@ headers = {
 
 # Payload
 data = {
-    "user_message": "Dok, tanganku gatal kenapa ya ?",
+    "user_message": "Dok, aku pusing skipsi gak selesai ada solusinya gak ?",
     "max_tokens": None  # or any integer value
 }
 
