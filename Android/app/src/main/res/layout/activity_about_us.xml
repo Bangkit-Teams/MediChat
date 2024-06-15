@@ -144,7 +144,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Institut Teknologi Adhi Tama Surabaya"
+                    android:text="Universitas Pendidikan Indonesia"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"
                     android:textColor="@android:color/black"
@@ -164,7 +164,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Universitas Pendidikan Indonesia"
+                    android:text="Institut Teknologi Adhi Tama Surabaya"
                     android:textSize="12sp"
                     android:layout_marginTop="4dp"
                     android:textColor="@android:color/black"
