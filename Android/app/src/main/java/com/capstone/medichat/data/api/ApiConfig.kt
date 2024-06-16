@@ -32,11 +32,11 @@ object ApiConfig {
         return retrofit.create(ApiService::class.java)
     }
 
-    // New Retrofit instance for the additional service
+
     private val additionalClient = OkHttpClient.Builder()
-        .connectTimeout(200, TimeUnit.SECONDS)  // Set connect timeout
-        .readTimeout(200, TimeUnit.SECONDS)     // Set read timeout
-        .writeTimeout(200, TimeUnit.SECONDS)    // Set write timeout
+        .connectTimeout(200, TimeUnit.SECONDS)
+        .readTimeout(200, TimeUnit.SECONDS)
+        .writeTimeout(200, TimeUnit.SECONDS)
         .build()
 
     private val additionalRetrofit = Retrofit.Builder()
@@ -47,11 +47,10 @@ object ApiConfig {
 
     val additionalService: ApiService = additionalRetrofit.create(ApiService::class.java)
 
-    // New Retrofit instance for the recommendation service
     private val recommendationClient = OkHttpClient.Builder()
-        .connectTimeout(200, TimeUnit.SECONDS)  // Set connect timeout
-        .readTimeout(200, TimeUnit.SECONDS)     // Set read timeout
-        .writeTimeout(200, TimeUnit.SECONDS)    // Set write timeout
+        .connectTimeout(200, TimeUnit.SECONDS)
+        .readTimeout(200, TimeUnit.SECONDS)
+        .writeTimeout(200, TimeUnit.SECONDS)
         .build()
 
     private val recommendationRetrofit = Retrofit.Builder()
