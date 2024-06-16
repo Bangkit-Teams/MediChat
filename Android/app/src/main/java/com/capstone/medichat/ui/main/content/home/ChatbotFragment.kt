@@ -147,7 +147,7 @@ class ChatbotFragment : Fragment() {
 
         var counter = 1
         while (cleanedText.contains("\\n$counter\\. ".toRegex())) {
-            cleanedText = cleanedText.replace("$counter\\. ".toRegex(), "\\n$counter\\.")
+            cleanedText = cleanedText.replace("$counter\\. ".toRegex(), "\\$counter\\.")
             counter++
         }
 

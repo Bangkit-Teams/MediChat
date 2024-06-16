@@ -46,4 +46,19 @@ object ApiConfig {
         .build()
 
     val additionalService: ApiService = additionalRetrofit.create(ApiService::class.java)
+
+    // New Retrofit instance for the recommendation service
+    private val recommendationClient = OkHttpClient.Builder()
+        .connectTimeout(200, TimeUnit.SECONDS)  // Set connect timeout
+        .readTimeout(200, TimeUnit.SECONDS)     // Set read timeout
+        .writeTimeout(200, TimeUnit.SECONDS)    // Set write timeout
+        .build()
+
+    private val recommendationRetrofit = Retrofit.Builder()
+        .baseUrl("https://recommendation-t7yc42rinq-uc.a.run.app/")
+        .client(recommendationClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val recommendationService: ApiService = recommendationRetrofit.create(ApiService::class.java)
 }
