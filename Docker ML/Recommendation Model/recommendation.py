@@ -3,10 +3,10 @@ from llama_cpp import Llama
 import os
 
 # Create a Flask object
-app = Flask("Llama server")
+app = Flask("Recommendation System")
 model = None
 
-@app.route('/llama', methods=['POST'])
+@app.route('/recommendation', methods=['POST'])
 def generate_response(max_tokens=None):
     global model
     
@@ -15,23 +15,10 @@ def generate_response(max_tokens=None):
 
         # Check if the required fields are present in the JSON data
         if 'user_message' in data:
-            system_message = "Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request."
             user_message = data['user_message']
 
-            # Prompt creation
-            prompt = f"""[INST] <<SYS>>
-            {system_message}
-            <</SYS>>
-            \n\n### Instruction: \n{user_message}\n\n### Input:\n\n\n### Response:\n [/INST]"""
-            
-            # Create the model if it was not previously created
-            if model is None:
-                # Put the location of to the GGUF model that you've download from HuggingFace here
-                model_path = "MediChat_medium_quant-unsloth.Q4_K_M.gguf"
-                
-                # Create the model
-                model = Llama(model_path=model_path)
-             
+            model =
+            tokenizer = 
             # Run the model
             output = model(prompt, max_tokens=max_tokens, echo=True, temperature=0.2, top_p=9, top_k=4)
             

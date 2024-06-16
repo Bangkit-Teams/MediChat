@@ -4,8 +4,7 @@ FROM python
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY ./llama_cpu_server.py /app/llama_cpu_server.py
-COPY ./MediChat_medium_quant-unsloth.Q4_K_M.gguf /app/MediChat_medium_quant-unsloth.Q4_K_M.gguf
+COPY ./recommendation.py /app/recommendation.py
 
 # Install the needed packages
 RUN pip install --no-cache-dir llama-cpp-python
