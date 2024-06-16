@@ -49,8 +49,9 @@
     <string name="title_riwayat">Riwayat</string>
     <string name="title_setting">Setting</string>
     <string name="title_recomend">Rekomendasi</string>
-    <string name="write_here">Tulis Disini</string>
+    <string name="write_here">Tuliskan Keluhan Kesehatanmu</string>
     <string name="Send">Kirim</string>
+    <string name="New">Baru</string>
     <string name="about_us_arrow_desc">Tentang kami button</string>
     <string name="about_use">Tentang Kami</string>
     <string name="rekomedasi1">Berdasarkan keluhan Anda, kami Medichat merekomendasikan untuk mendatangi dokter</string>

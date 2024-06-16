@@ -11,10 +11,10 @@
         android:id="@+id/chat_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:itemCount="20"
         tools:listitem="@layout/item_user_chat"/>
 
@@ -23,24 +23,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
+        android:background="@drawable/rounded_corner"
         android:orientation="horizontal"
-        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/new_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/Send"
+            android:src="@drawable/ic_add"
+            app:tint="@color/blue" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/message_edit_text"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            android:background="@drawable/rounded_corner"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:hint="@string/write_here"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:padding="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"
             android:textIsSelectable="true"
             tools:ignore="Autofill" />
 

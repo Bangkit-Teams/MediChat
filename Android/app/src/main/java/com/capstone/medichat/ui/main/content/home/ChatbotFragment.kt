@@ -62,18 +62,21 @@ class ChatbotFragment : Fragment() {
 
         sendButton.setOnClickListener {
             val prompt = messageEditText.text.toString()
-
             if (prompt.isNotBlank()) {
+
                 val userMessage = ChatMessage(prompt, isUserMessage = true)
                 chatViewModel.addMessage(userMessage)
-
                 messageEditText.text.clear()
 
                 val typingMessage = ChatMessage("MediChat is Typing...", isUserMessage = false)
                 val typingMessagePosition = chatViewModel.addMessage(typingMessage)
-
                 sendMessageToApi(prompt, typingMessagePosition)
             }
+        }
+
+        val newButton: ImageButton = view.findViewById(R.id.new_btn)
+        newButton.setOnClickListener {
+            chatViewModel.clearMessages()
         }
     }
 

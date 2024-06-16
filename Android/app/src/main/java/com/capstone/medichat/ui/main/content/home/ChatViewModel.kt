@@ -27,4 +27,8 @@ class ChatViewModel : ViewModel() {
             _messages.value = currentList
         }
     }
+
+    fun clearMessages() {
+        _messages.value = mutableListOf()
+    }
 }
