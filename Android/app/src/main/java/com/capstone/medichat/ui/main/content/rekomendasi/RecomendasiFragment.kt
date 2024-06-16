@@ -65,7 +65,6 @@ class RecomendasiFragment : Fragment() {
 
         lifecycleScope.launch {
             try {
-                // Show progress bar while waiting for response
                 binding.progressBar.visibility = View.VISIBLE
 
                 val response = ApiConfig.recommendationService.postRecommendation(requestBody)
@@ -75,7 +74,6 @@ class RecomendasiFragment : Fragment() {
                     val jsonObject = JSONObject(responseBody)
                     var recommendation = jsonObject.optString("response")
 
-                    // Remove unnecessary parts from recommendation string
                     recommendation = recommendation.replace("\"", "")
                     recommendation = recommendation.replace("{", "")
                     recommendation = recommendation.replace("}", "")
@@ -86,7 +84,6 @@ class RecomendasiFragment : Fragment() {
                         textRecomendasiDescription.visibility = View.VISIBLE
                         buttonCariDokter.visibility = View.VISIBLE
 
-                        // Clear input after successful submission
                         editTextUserMessage.text.clear()
                     }
                 } else {
