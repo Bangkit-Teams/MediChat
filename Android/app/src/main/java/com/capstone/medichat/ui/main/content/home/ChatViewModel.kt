@@ -11,20 +11,24 @@ class ChatViewModel : ViewModel() {
     }
     val messages: LiveData<MutableList<ChatMessage>> = _messages
 
-    // Add message and return its position
+
     fun addMessage(message: ChatMessage): Int {
         val currentList = _messages.value ?: mutableListOf()
         currentList.add(message)
         _messages.value = currentList
-        return currentList.size - 1 // Return the position of the new message
+        return currentList.size - 1
     }
 
-    // Update message at a specific position
+
     fun updateMessage(position: Int, newMessage: String) {
         val currentList = _messages.value ?: return
         if (position in currentList.indices) {
-            currentList[position] = ChatMessage(newMessage, isUserMessage = false) // Assuming only AI messages are updated
+            currentList[position] = ChatMessage(newMessage, isUserMessage = false)
             _messages.value = currentList
         }
+    }
+
+    fun clearMessages() {
+        _messages.value = mutableListOf()
     }
 }

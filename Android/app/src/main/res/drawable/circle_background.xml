@@ -1,0 +1,16 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Warna latar belakang -->
+    <solid android:color="#DEDEDE"/>
+
+    <!-- Tepi (optional) -->
+    <stroke
+        android:width="2dp"
+        android:color="#DEDEDE"/>
+
+    <!-- Ukuran -->
+    <size
+        android:width="48dp"
+        android:height="48dp"/>
+</shape>

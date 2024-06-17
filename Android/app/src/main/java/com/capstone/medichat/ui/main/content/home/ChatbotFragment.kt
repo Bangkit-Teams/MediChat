@@ -39,17 +39,14 @@ class ChatbotFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_chatbot, container, false)
 
-        // Find views by ID
         messageEditText = view.findViewById(R.id.message_edit_text)
         sendButton = view.findViewById(R.id.send_btn)
         chatRecyclerView = view.findViewById(R.id.chat_rv)
 
-        // Initialize adapter and set layout manager for RecyclerView
         chatAdapter = ChatAdapter()
         chatRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         chatRecyclerView.adapter = chatAdapter
 
-        // Observe messages in the ViewModel
         chatViewModel.messages.observe(viewLifecycleOwner) { messages ->
             chatAdapter.messages.clear()
             chatAdapter.messages.addAll(messages)
@@ -65,22 +62,21 @@ class ChatbotFragment : Fragment() {
 
         sendButton.setOnClickListener {
             val prompt = messageEditText.text.toString()
-
             if (prompt.isNotBlank()) {
-                // Add user message immediately
+
                 val userMessage = ChatMessage(prompt, isUserMessage = true)
                 chatViewModel.addMessage(userMessage)
-
-                // Clear input field
                 messageEditText.text.clear()
 
-                // Show "Typing..." message
                 val typingMessage = ChatMessage("MediChat is Typing...", isUserMessage = false)
                 val typingMessagePosition = chatViewModel.addMessage(typingMessage)
-
-                // Call API and update ViewModel with new data
                 sendMessageToApi(prompt, typingMessagePosition)
             }
+        }
+
+        val newButton: ImageButton = view.findViewById(R.id.new_btn)
+        newButton.setOnClickListener {
+            chatViewModel.clearMessages()
         }
     }
 
@@ -122,10 +118,9 @@ class ChatbotFragment : Fragment() {
     }
 
     private fun cleanApiResponse(responseText: String): String {
-        // Clean and format the response text
         var cleanedResponse = responseText
 
-        // Remove unnecessary characters or strings from response
+
         cleanedResponse = "Hi, saya akan membantu anda terkait hal tersebut.\n"+cleanedResponse
         cleanedResponse = cleanedResponse.replace("response\":", "")
         cleanedResponse = cleanedResponse.replace("{", "")
@@ -136,22 +131,20 @@ class ChatbotFragment : Fragment() {
 
         cleanedResponse = handleNumberedList(cleanedResponse)
 
-        // You can add more cleaning or formatting logic here as needed
 
         return cleanedResponse
     }
 
     private fun handleNumberedList(text: String): String {
-        // Handle numbering lists by replacing specific patterns
+
         var cleanedText = text
 
         var counter = 1
         while (cleanedText.contains("\\n$counter\\. ".toRegex())) {
-            cleanedText = cleanedText.replace("$counter\\. ".toRegex(), "\\n$counter\\.")
+            cleanedText = cleanedText.replace("$counter\\. ".toRegex(), "\\$counter\\.")
             counter++
         }
 
-        // You can add more specific handling for other numbering list formats
 
         return cleanedText
     }
