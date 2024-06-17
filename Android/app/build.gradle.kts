@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -68,6 +69,9 @@ dependencies {
 
     implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.0")
+    implementation ("androidx.room:room-runtime:2.5.0")
+    implementation ("androidx.room:room-ktx:2.5.0")
+    ksp("androidx.room:room-compiler:2.5.2")
 
 
 

@@ -4,34 +4,63 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
+import com.capstone.medichat.data.database.ChatDatabase
 import com.capstone.medichat.databinding.FragmentRiwayatBinding
+
 
 class RiwayatFragment : Fragment() {
 
     private var _binding: FragmentRiwayatBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var chatDatabase: ChatDatabase
+    private lateinit var riwayatAdapter: RiwayatAdapter
+
+    private val riwayatViewModel: RiwayatViewModel by viewModels {
+        RiwayatViewModelFactory(chatDatabase)
+    }
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRiwayatBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val view = binding.root
 
-        val textView: TextView = binding.textDashboard
-            textView.text = "This is Riwayat Fragment"
+        setupRecyclerView()
 
-        return root
+        chatDatabase = Room.databaseBuilder(
+            requireContext().applicationContext,
+            ChatDatabase::class.java, "chat_database"
+        ).build()
+
+        observeRiwayatMessages()
+
+        return view
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setupRecyclerView() {
+        riwayatAdapter = RiwayatAdapter()
+
+        binding.rvRiwayat.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = riwayatAdapter
+        }
+    }
+
+    private fun observeRiwayatMessages() {
+        riwayatViewModel.allRiwayatMessages.observe(viewLifecycleOwner, { messages ->
+            riwayatAdapter.submitList(messages)
+            binding.rvRiwayat.scrollToPosition(messages.size - 1)
+        })
     }
 }
