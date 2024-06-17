@@ -73,7 +73,7 @@ class ChatbotFragment : Fragment() {
 
         sendButton.setOnClickListener {
             val prompt = messageEditText.text.toString()
-            if (prompt.isNotBlank()) {
+            if (prompt.isNotBlank() && prompt.length > 20) {
                 val userMessage = ChatMessage(message = prompt, isUserMessage = true)
                 chatViewModel.addMessage(userMessage)
                 messageEditText.text.clear()
@@ -81,6 +81,13 @@ class ChatbotFragment : Fragment() {
                 val typingMessage = ChatMessage(message = "MediChat is Typing...", isUserMessage = false)
                 val typingMessagePosition = chatViewModel.addMessage(typingMessage)
                 sendMessageToApi(prompt, typingMessagePosition)
+            } else {
+                // Tampilkan pesan kesalahan jika input kurang dari 5 karakter
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Pesan Terlalu Pendek")
+                    .setMessage("Pesan harus lebih jelas dan berisi lebih dari 20 karakter.")
+                    .setPositiveButton("OK", null)
+                    .show()
             }
         }
 
@@ -89,6 +96,7 @@ class ChatbotFragment : Fragment() {
             showConfirmationDialog()
         }
     }
+
 
     private fun showConfirmationDialog() {
         AlertDialog.Builder(requireContext())
