@@ -3,12 +3,14 @@ package com.capstone.medichat.ui.login
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.capstone.medichat.data.preference.UserModel
 import com.capstone.medichat.databinding.ActivityLoginBinding
 import com.capstone.medichat.ui.ViewModelFactory
 import com.capstone.medichat.ui.main.MainActivity
@@ -85,18 +87,29 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signInWithEmail(email: String, password: String) {
+        binding.progressBar.visibility = View.VISIBLE
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
+                binding.progressBar.visibility = View.GONE
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = mAuth.currentUser
+                    val token = user?.getIdToken(false)?.result?.token ?: ""
                     showToast("Login successful")
+                    lifecycleScope.launch {
+                        saveUserSession(UserModel(email, token, password, true))
+                    }
                     navigateToMain()
                 } else {
                     // If sign in fails, display a message to the user.
                     showToast("Authentication failed: ${task.exception?.message}")
                 }
             }
+    }
+
+    private suspend fun saveUserSession(user: UserModel) {
+        val userPreference = UserPreference.getInstance(dataStore)
+        userPreference.saveSession(user)
     }
 
     private fun showToast(message: String) {

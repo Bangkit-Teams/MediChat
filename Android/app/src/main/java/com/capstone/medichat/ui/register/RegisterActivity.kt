@@ -1,12 +1,15 @@
 package com.capstone.medichat.ui.register
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.medichat.R
 import com.capstone.medichat.databinding.ActivityRegisterBinding
+import com.capstone.medichat.ui.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -90,8 +93,14 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun signUp(email: String, password: String) {
+        // Show a progress bar or loading indicator
+        binding.progressBar.visibility = View.VISIBLE
+
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
+                // Hide the progress bar or loading indicator
+                binding.progressBar.visibility = View.GONE
+
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = mAuth.currentUser
@@ -106,9 +115,12 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            // User is signed in, show a success message or navigate to another activity
-            showToast("Registration Successful")
-            // Navigate to your desired activity
+            // User is signed in, navigate to LoginActivity
+            showToast("Registration Successful. Please log in.")
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
         } else {
             // User is signed out, show a sign-in button
             showToast("Registration Failed")

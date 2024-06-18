@@ -9,7 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import com.capstone.medichat.data.preference.UserPreference
+import com.capstone.medichat.data.preference.dataStore
 import com.capstone.medichat.databinding.FragmentSettingBinding
+import com.capstone.medichat.ui.login.LoginActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SettingFragment : Fragment() {
 
@@ -17,6 +23,7 @@ class SettingFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var userPreference: UserPreference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +51,13 @@ class SettingFragment : Fragment() {
             navigateToAboutUsActivity()
         }
 
+        binding.logoutContainer.setOnClickListener {
+            logout()
+        }
+
+        // Initialize UserPreference
+        userPreference = UserPreference.getInstance(requireContext().dataStore)
+
         return root
     }
 
@@ -52,6 +66,18 @@ class SettingFragment : Fragment() {
 
         binding.aboutUsContainer.setOnClickListener {
             navigateToAboutUsActivity()
+        }
+    }
+
+    private fun logout() {
+        CoroutineScope(Dispatchers.IO).launch {
+            userPreference.logout()
+            launch(Dispatchers.Main) {
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                requireActivity().finish()
+            }
         }
     }
 
