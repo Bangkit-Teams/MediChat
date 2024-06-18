@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,6 +67,9 @@ class RecomendasiFragment : Fragment() {
         buttonCariDokter.setOnClickListener {
             checkLocationPermissionAndOpenMaps()
         }
+
+        // Tambahkan log handler intent map
+        logAvailableMapHandlers()
 
         return root
     }
@@ -181,17 +185,45 @@ class RecomendasiFragment : Fragment() {
     private fun openGoogleMaps(latitude: Double, longitude: Double) {
         recommendation?.let {
             val gmmIntentUri = Uri.parse("geo:$latitude,$longitude?q=${Uri.encode(it)}")
-            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-            mapIntent.setPackage("com.google.android.apps.maps")
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri).apply {
+                setClassName(
+                    "com.google.android.apps.maps",
+                    "com.google.android.maps.MapsActivity"
+                )
+            }
+
             if (mapIntent.resolveActivity(requireActivity().packageManager) != null) {
                 startActivity(mapIntent)
+                Log.d("RecomendasiFragment", "Opening map with URI: $gmmIntentUri")
             } else {
-                // Handle case where Google Maps is not installed
-                textRekomendasiResult.text = "Google Maps tidak tersedia"
-                textRekomendasiResult.visibility = View.VISIBLE
-                textRecomendasiDescription.visibility = View.GONE
-                buttonCariDokter.visibility = View.GONE
+                // Fallback ke browser
+                val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://maps.google.com/?q=${Uri.encode(it)}"))
+                if (webIntent.resolveActivity(requireActivity().packageManager) != null) {
+                    startActivity(webIntent)
+                    Log.d("RecomendasiFragment", "Opening map in web with URI: https://maps.google.com/?q=${Uri.encode(it)}")
+                } else {
+                    textRekomendasiResult.text = "Tidak ada aplikasi yang dapat membuka URI"
+                    textRekomendasiResult.visibility = View.VISIBLE
+                    textRecomendasiDescription.visibility = View.GONE
+                    buttonCariDokter.visibility = View.GONE
+                    Log.e("RecomendasiFragment", "No application can handle the map intent")
+                }
             }
+        } ?: run {
+            textRekomendasiResult.text = "Rekomendasi tidak tersedia"
+            textRekomendasiResult.visibility = View.VISIBLE
+            textRecomendasiDescription.visibility = View.GONE
+            buttonCariDokter.visibility = View.GONE
+            Log.e("RecomendasiFragment", "No recommendation available")
+        }
+    }
+
+    private fun logAvailableMapHandlers() {
+        val gmmIntentUri = Uri.parse("geo:0,0")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        val resolveInfos = requireActivity().packageManager.queryIntentActivities(mapIntent, PackageManager.MATCH_DEFAULT_ONLY)
+        for (resolveInfo in resolveInfos) {
+            Log.d("RecomendasiFragment", "Package that can handle map intent: ${resolveInfo.activityInfo.packageName}")
         }
     }
 
