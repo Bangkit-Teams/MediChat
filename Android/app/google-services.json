@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "500136424744",
+    "project_id": "capstone-project-c241-ps397",
+    "storage_bucket": "capstone-project-c241-ps397.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500136424744:android:990e33800fc8bea5f20c1d",
+        "android_client_info": {
+          "package_name": "com.capstone.medichat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500136424744-vg621adnis7cissf3v3o86qrn1r4q1vm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDniY9X9cN52yIHkKQVR1hV9s3FjwJnAq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500136424744-vg621adnis7cissf3v3o86qrn1r4q1vm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

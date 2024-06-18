@@ -27,6 +27,7 @@
     <string name="camera">Camera</string>
     <string name="empty_image_warning">Please insert an image first</string>
     <string name="empty_description_warning">Description should\'nt be empty</string>
+    <string name="name_error">Must be in a valid name format</string>
     <string name="email_error">Must be in a valid email format</string>
     <string name="password_error">Must not be less than 8 characters</string>
     <string name="success_create_acc">Account created successfully</string>

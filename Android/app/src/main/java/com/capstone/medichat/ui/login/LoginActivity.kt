@@ -3,27 +3,25 @@ package com.capstone.medichat.ui.login
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.capstone.medichat.data.preference.UserModel
-import com.capstone.medichat.data.preference.UserPreference
-import com.capstone.medichat.data.preference.dataStore
 import com.capstone.medichat.databinding.ActivityLoginBinding
 import com.capstone.medichat.ui.ViewModelFactory
 import com.capstone.medichat.ui.main.MainActivity
-import com.capstone.medichat.data.repo.Result
+import com.capstone.medichat.data.preference.UserPreference
+import com.capstone.medichat.data.preference.dataStore
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var mAuth: FirebaseAuth
 
     private val viewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
@@ -33,6 +31,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance()
 
         lifecycleScope.launch {
             if (isUserLoggedIn()) {
@@ -76,59 +77,26 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordEditText.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                viewModel.login(email, password).observe(this) { result ->
-                    if (result != null) {
-                        when (result) {
-                            is Result.Loading -> {
-                                showLoading(true)
-                            }
-
-                            is Result.Success -> {
-                                showLoading(false)
-                                val loginResponse = result.data
-                                showToast(loginResponse.message)
-
-                                val userModel = UserModel(
-                                    email = email,
-                                    token = loginResponse.loginResult.token,
-                                    password = password,
-                                    isLogin = true
-                                )
-                                lifecycleScope.launch {
-                                    saveUserSession(userModel)
-                                }
-
-                                AlertDialog.Builder(this).apply {
-                                    setTitle("Success!")
-                                    setMessage("Login success")
-                                    setPositiveButton("Next") { _, _ ->
-                                        navigateToMain()
-                                    }
-                                    create()
-                                    show()
-                                }
-                            }
-
-                            is Result.Error -> {
-                                showLoading(false)
-                                showToast(result.error)
-                            }
-                        }
-                    }
-                }
+                signInWithEmail(email, password)
             } else {
                 showToast("Email and Password cannot be empty")
             }
         }
     }
 
-    private suspend fun saveUserSession(userModel: UserModel) {
-        val userPreference = UserPreference.getInstance(dataStore)
-        userPreference.saveSession(userModel)
-    }
-
-    private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    private fun signInWithEmail(email: String, password: String) {
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    val user = mAuth.currentUser
+                    showToast("Login successful")
+                    navigateToMain()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    showToast("Authentication failed: ${task.exception?.message}")
+                }
+            }
     }
 
     private fun showToast(message: String) {
