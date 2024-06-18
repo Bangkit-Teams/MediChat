@@ -8,18 +8,19 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRiwayat"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="408dp"
+        android:layout_height="606dp"
+        android:layout_marginBottom="85dp"
         android:clipToPadding="false"
         android:paddingStart="8dp"
-        android:paddingEnd="8dp"
         android:paddingTop="8dp"
+        android:paddingEnd="8dp"
         android:paddingBottom="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_riwayat" />
 
 

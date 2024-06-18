@@ -31,21 +31,15 @@ class RiwayatFragment : Fragment() {
         _binding = FragmentRiwayatBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        setupRecyclerView()
-
         chatDatabase = Room.databaseBuilder(
             requireContext().applicationContext,
             ChatDatabase::class.java, "chat_database"
         ).build()
 
+        setupRecyclerView()
         observeRiwayatMessages()
 
         return view
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun setupRecyclerView() {
@@ -63,4 +57,11 @@ class RiwayatFragment : Fragment() {
             binding.rvRiwayat.scrollToPosition(messages.size - 1)
         })
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
+
+
