@@ -236,7 +236,7 @@
             android:layout_width="137dp"
             android:layout_height="28dp"
             android:layout_marginTop="10dp"
-            android:text="Hapus Riyawat"
+            android:text="Hapus Riwayat"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
