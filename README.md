@@ -23,5 +23,3 @@ In today's digitally saturated era, abundant medical information often leaves pe
 - Spesialist Recommendation
 ## Our Tech Stacks
 ![tech](https://github.com/azzamfauqi123/Data/blob/2293bc5a89b2691da235d7c61b1fa24af67da387/Untitled%20design.png)
-# Application Architecture
-![Cloud Architecture](https://github.com/Bangkit-Teams/MediChat/blob/main/Cloud/pictures/cloud-architecture.png)
