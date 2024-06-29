@@ -25,3 +25,25 @@ In today's digitally saturated era, abundant medical information often leaves pe
 ![tech](https://github.com/azzamfauqi123/Data/blob/2293bc5a89b2691da235d7c61b1fa24af67da387/Untitled%20design.png)
 ## Application Architecture
 ![Cloud Architecture](https://github.com/Bangkit-Teams/MediChat/blob/main/Cloud/pictures/cloud-architecture.png)
+## Important Link
+- SCREENSHOTS/DEMO VIDEO:
+https://www.youtube.com/watch?v=r4o6negbJQ0 
+
+- DATASET LINK:
+https://huggingface.co/datasets/ryorichie/medicalquestion
+
+- DEPLOYED LINK:
+Our app : https://github.com/Bangkit-Teams/MediChat/tree/main/Android
+Our trained model : https://huggingface.co/ryorichie/MediChat_Medium
+API request URL : https://generate-response1-t7yc42rinq-uc.a.run.app/llama 
+API recommendation URL : https://recommendation-t7yc42rinq-uc.a.run.app/recommendation 
+App release : https://github.com/Bangkit-Teams/MediChat/releases/tag/release
+
+- 10-MIN PRODUCT PRESENTATION LINK:
+https://youtu.be/j-lmfiEuWyA 
+
+## SWOT Analysis of the project
+Strengths: Our product can provide first treatment in an emergency and find the right doctor so that the doctor's time is not wasted if he sees an unsuitable doctor. Our LLM is trained with Indonesian language and gives a related and fairly accurate response.
+Weaknesses: Because of limited resources, our LLM have high response times and can’t give follow-up answers because of resource limitation.
+Opportunities: Indonesia is a country with one of the fewest doctors per capita in the world, we need to use these limited resources as efficiently as possible. So often we meet the wrong doctor that does not relate to our symptoms and that is a waste of time, resource.
+Threats, LLM can’t replace doctors, using it is an act of self-diagnose. We can be wrong with our symptoms and LLM can give false diagnostics, we need to use this model with caution.
